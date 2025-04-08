@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GAMBLERS INCREMENTAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div id="notshop">
+      <h1>GAMBLERS INCREMENTAL</h1>
+      <button class="button" id="gambleButton">Click to gamble</button>
+      <button class="button" id="openInfo">Info</button>
+      <script src="index.js"></script>
+      <p id="counterofcards">Cards:</p>
+      <p id="cards">0</p>
+      <p id="counterofchips">Chips:</p>
+      <p id="chips">0</p>
+      <p id="counterofdominoes">Dominoes:</p>
+      <p id="dominoes">0</p>
+
+      <button id="openSacrifice" class="sacrificeButton">Sacrifice</button>
+
+      <button class="button" id="openshop">Upgrades</button>
+      <div id="legend">
+        <h2>Legend</h2>
+        <h4 id="cardMult">Card multiplier: 1x</h4>
+        <h4 id="chipMult">Chip multiplier: 1x</h4>
+        <h4 id="luck">Luck: 0</h4>
+        <h4 id="diceCritChance">
+          Dice crit chance: <a style="color: #919191">N/A</a>
+        </h4>
+      </div>
+      <script> console.log("Loaded marks:", Number(localStorage.getItem("marks")) || 0);
+</script>
+    </div>
+    <div id="sacrificePage">
+        <div id="whiteScreen"></div>
+
+      <div id="sacrificebox">
+        <h2>Sacrifice</h2>
+
+        <h4>
+          Sacrifice all your progress including upgrades in exchanged for an
+          ancient currency known as
+          <span style="color: #5c0000">Dark marks</span>, requires a minimum of
+          100k points and gain 1 mark for every other extra 50k points you have,
+          cost for an extra mark increases by 1.1x per sacrifice
+        </h4>
+        <p>You will gain 0<span style="color: #5c0000"> Dark marks.</span></p>
+        <button class="sacrificeButton" id="sacrificeButton" >Sacrifice</button>
+      </div>
+    </div>
+    <div id="info">
+      <div id="infoLegend">
+        <h2>Legend</h2>
+        <h4><span style="color: green">Green:</span> Currency</h4>
+        <h4><span style="color: red">Red:</span> Upgrade</h4>
+        <h4><span style="color: cyan">Cyan:</span> Domino</h4>
+        <h4><span style="color: #4d52e3">Rare Blue:</span> Rare? Obviously?</h4>
+        <h4><span style="color: darkred">Dark Red:</span> Mark</h4>
+        <h4><span style="color: gold">Gold:</span> Subtle foreshadowing</h4>
+      </div>
+      <button class="button" id="closeInfo">Main menu</button>
+      <h2>Stats</h2>
+      <p id="rawCards">Cards: 0</p>
+      <p id="rawChips">Chips: 0</p>
+      <p id="rawDominoes">Dominoes: 0</p>
+      <p id="rawMarks">Marks: Unobtainable</p>
+      <h2>Extra info</h2>
+
+      <div class="button currency-card" onclick="toggleUpgrade(this)">
+        <div class="currency-content">
+          <h2 class="currency-title">Currencies</h2>
+          <p class="currency-description">
+            <span style="color: green">Card</span> and
+            <span style="color: green">Chip</span> are your main currencies,
+            both with a 49.99% chance from gambling.
+            <span style="color: green">Cards</span> buy things like
+            <span style="color: red">Cards</span> and Clover, while
+            <span style="color: green">Chips</span> are for upgrades like
+            <span style="color: red">Chips</span> and Dice.
+            <span style="color: cyan">Domino</span> is super rare, with only a
+            0.02% drop rate, and it's used for
+            <span style="color: #4d52e3">rare+</span> upgrades.
+            <span style="color: green">Points</span> are just your
+            <span style="color: green">Chips</span> and
+            <span style="color: green">Cards</span> combined. When you spend
+            <span style="color: green">Points</span>,
+            <span style="color: green">Cards</span>, and/or
+            <span style="color: green">Chips</span> at the same time, it uses
+            <span style="color: green">Chips</span> and
+            <span style="color: green">Cards</span> first, then splits the rest
+            and spends that value. If you don’t have enough after it splits, it
+            refunds you and ends the purchase.
+            <span style="color: darkred">Marks</span> are kind of weird, and not
+            much is known of it <span style="color: gold">yet</span>.
+          </p>
+        </div>
+      </div>
+      <script>
+        function toggleUpgrade(element) {
+          element.classList.toggle("expanded");
+        }
+      </script>
+    </div>
+    <div id="shop">
+      <p id="easterEgg1">hi</p>
+      <button class="button" id="closeshop">Main menu</button>
+      <div class="image-container" id="openchipupgradeui">
+        <img
+          src="assets/chip1"
+          alt="upg1"
+          id="chipImage"
+        />
+      </div>
+      <div class="image-container" id="opencardupgradeui">
+        <img
+          src="assets/2.image.png"
+          alt="upg2"
+        />
+      </div>
+      <div class="image-container" id="opendiceupgradeui">
+        <img
+          src="assets/3.image.png"
+          alt="upg1"
+        />
+      </div>
+      <div class="image-container" id="opencloverupgradeui">
+        <img
+          src="assets/clover1"
+          alt="upg4"
+          id="cloverImage"
+        />
+      </div>
+      <div class="image-container" id="opencorruptionupgradeui">
+        <img
+          src="assets/corruption.png"
+          alt="upg5"
+        />
+      </div>
+    </div>
+    <div id="diceupgui">
+      <h1>Dice</h1>
+      <p color="#919191">Next:</p>
+      <font id="diceRarity" class="rarityofupgrade" color="#919191">N/A</font>
+      <font id="diceCost" class="cost"
+        >842 points, 3k cards, 4.2k chips, 95 dominoes</font
+      >
+      <h4>
+        The epitome of gambling; randomness! Has a 5% chance of giving you 15x
+        more of any stat upon gambling.
+      </h4>
+      <img
+        src="assets/3.image.png"
+        alt="upg1"
+        height="300"
+        width="300"
+        id="dicebutyouarebuyingit"
+        class="buyingimage"
+      />
+
+      <button class="button thiswillupgrade" id="buydice">Upgrade</button>
+      <button id="diceBackButton">Back</button>
+    </div>
+
+    <div id="chipupgui">
+      <h1>Chip</h1>
+      <p color="#919191">Next:</p>
+      <font id="chipRarity" class="rarityofupgrade" color="#919191">N/A</font>
+      <font id="chipCost" class="cost">100 chips</font>
+      <h4>All in. Multiplies the amount of chips you gain.</h4>
+      <img
+        src="assets/chip1"
+        alt="upg1"
+        height="300"
+        width="300"
+        id="chipbutyouarebuyingit"
+        class="buyingimage"
+      />
+      <button class="button thiswillupgrade" id="buychip">Upgrade</button>
+      <button id="chipBackButton">Back</button>
+    </div>
+
+    <div id="cardupgui">
+      <h1>Card</h1>
+      <p color="#919191">Next:</p>
+      <font id="cardRarity" class="rarityofupgrade" color="#919191">N/A</font>
+      <font id="cardCost" class="cost">100 cards</font>
+      <h4>
+        A playing card, likely marked. Multiplies the amount of cards you gain
+        by 3.
+      </h4>
+      <img
+        src="assets/2.image.png"
+        alt="upg1"
+        height="300"
+        width="300"
+        id="cardbutyouarebuyingit"
+        class="buyingimage"
+      />
+      <button class="button thiswillupgrade" id="buycard">Upgrade</button>
+      <button id="cardBackButton">Back</button>
+    </div>
+
+    <div id="cloverupgui">
+      <h1>Clover</h1>
+      <p color="#919191">Next:</p>
+      <font id="cloverRarity" class="rarityofupgrade" color="#919191">N/A</font>
+      <font id="cloverCost" class="cost">1.7k points, 1 domino</font>
+      <h4>
+        A magical bloom which seems to influence your luck, increases all luck
+        4%.
+      </h4>
+      <img
+        src="assets/clover1"
+        alt="upg1"
+        height="300"
+        width="300"
+        id="cloverbutyouarebuyingit"
+        class="buyingimage"
+      />
+      <button class="button thiswillupgrade" id="buyclover">Upgrade</button>
+      <button id="cloverBackButton">Back</button>
+    </div>
+    <div id="corruptionupgui">
+      <h1>Corruption</h1>
+      <p color="#919191">Next:</p>
+      <font id="corruptionRarity" class="rarityofupgrade" color="#919191"
+        >N/A</font
+      >
+      <font id="corruptionCost" class="cost">666k points, 6.66k dominoes</font>
+      <h4>
+        Sinful. Tempoarily turns all cards and chips to dominoes slowly for
+        30 seconds.
+      </h4>
+      <img
+        src="assets/corruption.png"
+        alt="upg1"
+        height="300"
+        width="300"
+        id="corruptionbutyouarebuyingit"
+        class="buyingimage"
+      />
+      <button class="button thiswillupgrade" id="buycorruption">Upgrade</button>
+      <button id="corruptionBackButton">Back</button>
+    </div>
+  </body>
+</html>
