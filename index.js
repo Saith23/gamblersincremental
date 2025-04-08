@@ -375,7 +375,7 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         inventory.chip = "Common";
         document.getElementById("chipCost").innerHTML = "600 chips";
         chipImg.src =
-          "assets/chip2";
+          "assets/chip2.png";
 
         chipIncrease += 3;
         setInterval(() => {
@@ -390,7 +390,7 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         document.getElementById("chipRarity").style.color = "#ffe65d";
         document.getElementById("chipCost").innerHTML = "3.6k chips, 1 domino";
         chipImg.src =
-          "assets/chip3";
+          "assets/chip3.png";
       } else if (inventory.chip == "Unusual") {
         inventory.chip = "Rare";
         chipIncrease += 3;
@@ -398,7 +398,7 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         document.getElementById("chipCost").innerHTML =
           "21.6k chips, 2 dominoes";
         chipImg.src =
-          "assets/chip4";
+          "assets/chip4.png";
       } else if (inventory.chip == "Rare") {
         inventory.chip = "Epic";
         chipIncrease += 3;
@@ -406,7 +406,7 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         document.getElementById("chipCost").innerHTML =
           "129.6k chips, 6 dominoes";
         chipImg.src =
-          "assets/chip5";
+          "assets/chip5.png";
       } else if (inventory.chip == "Epic") {
         inventory.chip = "Legendary";
         chipIncrease += 3;
@@ -414,19 +414,19 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         document.getElementById("chipCost").innerHTML =
           "777.6k chips, 19 dominoes";
         chipImg.src =
-          "assets/chip6";
+          "assets/chip6.png";
       } else if (inventory.chip == "Legendary") {
         inventory.chip = "Mythic";
         document.getElementById("chipCost").innerHTML =
           "4.7M chips, 40 dominoes";
         chipImg.src =
-          "assets/chip7";
+          "assets/chip7.png";
         chipIncrease += 3;
         document.getElementById("chipRarity").style.color = "#1fdbde";
       } else if (inventory.chip == "Mythic") {
         inventory.chip = "Ultra";
         chipImg.src =
-          "assets/chip8";
+          "assets/chip8.png";
         chipIncrease += 3;
         document.getElementById("chipCost").innerHTML =
           "28M chips, 120 dominoes";
@@ -438,7 +438,7 @@ document.getElementById("sacrificeButton").onclick = function reset() {
         document.getElementById("chipCost").innerHTML =
           "560M chips, 900 dominoes";
         chipImg.src =
-          "assets/chip9";
+          "assets/chip9.png";
 
         chipIncrease += 3;
       } else if (inventory.chip == "Super") {
