@@ -1,0 +1,298 @@
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+.button {
+  font-family: "Ubuntu", sans-serif;
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  padding: 7.5px 16px;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer;
+  background-color: #2d2d2d;
+  transition: 200ms
+}
+.button:hover {
+    background-color: #7a7a7a;
+
+}
+   #whiteScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease-in-out;
+      z-index: 9999;
+    }
+
+    #whiteScreen.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+#legend {
+  text-align: center;
+
+  border: 4px solid #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 400px;
+}
+#infoLegend {
+  text-align: center;
+
+  border: 4px solid #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 400px;
+}
+
+
+
+#diceBackButton,
+#cardBackButton,
+#cloverBackButton,
+#chipBackButton,
+#corruptionBackButton {
+  font-family: "Ubuntu", sans-serif;
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  padding: 7.5px 16px;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer;
+  background-color: #2d2d2d;
+  position: relative;
+  left: -160px;
+  top: 80px;
+}
+.image-container {
+  position: relative; /* Makes the container the positioning context */
+  width: 10px; /* Or any desired width */
+  height: 10px; /* Or any desired height */
+}
+#diceupgui {
+  display: none;
+  position: relative;
+}
+
+#chipupgui {
+  display: none;
+  position: relative;
+}
+#cardupgui {
+  display: none;
+  position: relative;
+}
+#cloverupgui {
+  display: none;
+  position: relative;
+}
+#corruptionupgui {
+  display: none;
+  position: relative;
+}
+.thiswillupgrade {
+  position: relative;
+  left: -160px;
+  top: 80px;
+}
+.cost {
+  width: 920px;
+  position: absolute;
+  left: -460px;
+  top: 120px;
+}
+.rarityofupgrade {
+width: 200px;
+  position: absolute;
+  left: -100px;
+  top: 60px;
+}
+
+.buyingimage {
+  position: relative;
+  left: 90px;
+  top: 50px;
+}
+#openchipupgradeui {
+  position: relative;
+  left: -120px;
+  top: 0px;
+}
+#chipbutyouarebuyingit {
+  position: relative;
+  top: -20px;
+}
+#dicebutyouarebuyingit {
+  position: relative;
+  top: -20px;
+}
+#cardbutyouarebuyingit {
+  position: relative;
+  top: -20px;
+}
+#cloverbutyouarebuyingit {
+  position: relative;
+  top: -20px;
+}
+#opencardupgradeui {
+  position: relative;
+  left: -80px;
+  top: 0px;
+}
+#opendiceupgradeui {
+  position: relative;
+  left: -40px;
+  top: 0px;
+}
+#opencloverupgradeui {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+#opencorruptionupgradeui {
+  position: relative;
+  left: 10px;
+  top: 0px;
+height:100% !important;
+width:100% !important;
+
+}
+
+.image-container img {
+  width: 10%;
+  height: 10%;
+}
+#closeshop {
+  font-family: "Ubuntu", sans-serif;
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  padding: 7.5px 16px;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer;
+  position: absolute;
+  left: 900px;
+  top: 450px;
+  background-color: #2d2d2d;
+}
+
+.currency-card {
+  width: 250px;
+  height: 60px;
+  overflow: hidden;
+  position: absolute;
+  padding: 10px;
+  width: 900px;
+  left: 500px;
+  transition: height 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.currency-title {
+    margin: 0;
+  padding: 0;
+  font-weight: bold;
+  line-height: 1.2;
+
+}
+.currency-content {
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+      font-size: 16px;
+
+}
+.currency-description {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.currency-card.expanded {
+  height: 150px;
+}
+
+.currency-card.expanded .currency-description {
+  opacity: 1;
+}
+
+#closeInfo {
+  position: absolute;
+  left: 0px;
+  top: 750px;
+}
+.sacrificeButton {
+  font-family: "Ubuntu", sans-serif;
+  border: 4px solid #5c0000;
+  border-radius: 10px;
+  color: #5c0000;
+  padding: 7.5px 16px;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer; 
+  background-color: darkred;
+  transition: 200ms
+}
+.sacrificeButton:hover {
+    background-color: #9e0000;
+
+}
+
+#sacrificebox {
+  text-align: center;
+  border: 4px solid #5c0000;
+  border-radius: 4px;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  background-color: darkred;
+  width: 800px;
+height: 400px;
+      overflow: visible;
+
+}
+#info, #shop {
+  display: none;
+
+}
+
+#sacrificePage {
+  display: none;
+  z-index: 1;
+}
+#notshop {
+  display: inline;
+}
+
+#markDiv {
+  position: absolute;
+  top: 0px;
+  
+}
+#easterEgg1 {
+  display: none;
+ position: absolute;
+  top: 200px;
+  
+}
