@@ -42,11 +42,11 @@ const chipPrices = [
 ];
 const dicePrice = { points: 842, cards: 2982, chips: 4200, dominoes: 95 };
 const corruptionPrice = {
-  points: 0,
+  points: 666000,
   cards: 0,
   chips: 0,
-  dominoes: 50,
-  marks: 35,
+  dominoes: 6660,
+  marks: 0,
 };
 
 let cardFinal;
@@ -143,18 +143,18 @@ function calculateMarks(points) {
   if (points < 100000) return 0;
   return 1 + Math.floor((points - 100000) / 50000);
 }
+let marks = Number(localStorage.getItem("marks")) || 0;
 
 document.getElementById("sacrificeButton").onclick = function reset() {
   let total = cards + chips;
   if (total < 100000) return;
 
-  let currentMarks = Number(localStorage.getItem("marks")) || 0;
-
+marks = Number(localStorage.getItem("marks")) || 0;
   let newMarks = calculateMarks(total);
-  localStorage.setItem("marks", currentMarks + newMarks);
+  localStorage.setItem("marks", marks + newMarks);
 
   console.log("Gained marks:", newMarks);
-  console.log("Total marks:", currentMarks + newMarks);
+  console.log("Total marks:", marks + newMarks);
 
   // Screen fade and reload
   const screen = document.getElementById("whiteScreen");
@@ -363,13 +363,13 @@ document.getElementById("sacrificeButton").onclick = function reset() {
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      //  document.getElementById("marks").innerHTML = formatNumber(marks);
-
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
       document.getElementById("rawDominoes").innerHTML =
         "Dominoes: " + dominoes;
-      //   document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+      document.getElementById("rawMarks").innerHTML = "Marks: " + marks
 
       if (inventory.chip == "") {
         inventory.chip = "Common";
@@ -527,13 +527,13 @@ document.getElementById("sacrificeButton").onclick = function reset() {
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      //  document.getElementById("marks").innerHTML = formatNumber(marks);
-
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
       document.getElementById("rawDominoes").innerHTML =
         "Dominoes: " + dominoes;
-      //   document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+      document.getElementById("rawMarks").innerHTML = "Marks: " + marks
 
       if (inventory.card == "") {
         inventory.card = "Common";
@@ -630,13 +630,13 @@ document.getElementById("sacrificeButton").onclick = function reset() {
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      //  document.getElementById("marks").innerHTML = formatNumber(marks);
-
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
       document.getElementById("rawDominoes").innerHTML =
         "Dominoes: " + dominoes;
-      //   document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+      document.getElementById("rawMarks").innerHTML = "Marks: " + marks
 
       setInterval(() => {
         document.getElementById("diceCritChance").innerHTML =
@@ -728,13 +728,13 @@ document.getElementById("sacrificeButton").onclick = function reset() {
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      //  document.getElementById("marks").innerHTML = formatNumber(marks);
-
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
       document.getElementById("rawDominoes").innerHTML =
         "Dominoes: " + dominoes;
-      //   document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+      document.getElementById("rawMarks").innerHTML = "Marks: " + marks
 
       if (inventory.clover == "") {
         inventory.clover = "Common";
@@ -887,12 +887,12 @@ document.getElementById("sacrificeButton").onclick = function reset() {
     document.getElementById("chips").innerHTML = formatNumber(chips);
     document.getElementById("cards").innerHTML = formatNumber(cards);
     document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-    //  document.getElementById("marks").innerHTML = formatNumber(marks);
-
+    document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
     document.getElementById("rawChips").innerHTML = "Chips: " + chips;
     document.getElementById("rawCards").innerHTML = "Cards: " + cards;
     document.getElementById("rawDominoes").innerHTML = "Dominoes: " + dominoes;
-    //   document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+    document.getElementById("rawMarks").innerHTML = "Marks: " + marks
   };
 }; //something is disabling the increase()
 // why is it null..?

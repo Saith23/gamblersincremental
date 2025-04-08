@@ -250,8 +250,15 @@ width:100% !important;
   font-size: 20px;
   margin: 0px 0px;
   cursor: pointer; 
+
   background-color: darkred;
   transition: 200ms
+}
+#sacrificeButton {
+  top: 350px;
+  left: 340px;
+
+  position: absolute;
 }
 .sacrificeButton:hover {
     background-color: #9e0000;
