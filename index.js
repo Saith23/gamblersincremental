@@ -2,8 +2,9 @@ let cards = 0;
 let chips = 0;
 let dominoes = 0;
 let luck = 0;
-let cardIncrease = 1;
-let chipIncrease = 1;
+let marks = Number(localStorage.getItem("marks")) || 0;
+let cardIncrease = 50000;
+let chipIncrease = 50000;
 let dominoIncrease = 1;
 
 const cloverPrices = [
@@ -139,12 +140,41 @@ window.onload = function () {
 
     }
   }
+  function closeshop() {
+    document.getElementById("easterEgg1").style.display = "none";
+
+    shop.style.display = "none";
+    mainMenu.style.display = "inline";
+    diceUpg.style.display = "none";
+    cardUpg.style.display = "none";
+    corruptionUpg.style.display = "none";
+
+    chipUpg.style.display = "none";
+    cloverUpg.style.display = "none";
+    diceupgui.style.display = "none";
+    cardupgui.style.display = "none";
+    chipupgui.style.display = "none";
+    corruptionupgui.style.display = "none";
+sacrificepage.style.display = "none"
+    cloverupgui.style.display = "none";
+    info.style.display = "none";
+  };
 function calculateMarks(points) {
   if (points < 100000) return 0;
   return 1 + Math.floor((points - 100000) / 50000);
+    marks = Number(localStorage.getItem("marks")) || 0;
 }
-let marks = Number(localStorage.getItem("marks")) || 0;
+document.getElementById("chips").innerHTML = formatNumber(chips);
+document.getElementById("cards").innerHTML = formatNumber(cards);
 
+document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
+document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
+document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
+document.getElementById("rawChips").innerHTML = "Chips: " + chips;
+document.getElementById("rawCards").innerHTML = "Cards: " + cards;
+document.getElementById("rawDominoes").innerHTML =
+  "Dominoes: " + dominoes;
+document.getElementById("rawMarks").innerHTML = "Marks: " + marks
 document.getElementById("sacrificeButton").onclick = function reset() {
   let total = cards + chips;
   if (total < 100000) return;
@@ -171,25 +201,9 @@ marks = Number(localStorage.getItem("marks")) || 0;
 
   document.getElementById("openshop").onclick = openshop;
 
-  document.getElementById("closeshop").onclick = function closeshop() {
-    document.getElementById("easterEgg1").style.display = "none";
-
-    shop.style.display = "none";
-    mainMenu.style.display = "inline";
-    diceUpg.style.display = "none";
-    cardUpg.style.display = "none";
-    corruptionUpg.style.display = "none";
-
-    chipUpg.style.display = "none";
-    cloverUpg.style.display = "none";
-    diceupgui.style.display = "none";
-    cardupgui.style.display = "none";
-    chipupgui.style.display = "none";
-    corruptionupgui.style.display = "none";
-
-    cloverupgui.style.display = "none";
-    info.style.display = "none";
-  };
+  document.getElementById("closeshop").onclick = closeshop
+  document.getElementById("sacrificeBackButton").onclick = closeshop
+ 
   infoButton.onclick = function openinfo() {
     shop.style.display = "none";
     mainMenu.style.display = "none";
@@ -358,12 +372,13 @@ marks = Number(localStorage.getItem("marks")) || 0;
     if (chips >= usedPrice[2] && dominoes >= usedPrice[3]) {
       chips -= usedPrice[2];
       dominoes -= usedPrice[3];
+    marks = Number(localStorage.getItem("marks")) || 0;
 
       document.getElementById("chips").innerHTML = formatNumber(chips);
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
 document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
@@ -522,12 +537,13 @@ document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) 
     if (cards >= usedPrice[1] && dominoes >= usedPrice[3]) {
       cards -= usedPrice[1];
       dominoes -= usedPrice[3];
+    marks = Number(localStorage.getItem("marks")) || 0;
 
       document.getElementById("chips").innerHTML = formatNumber(chips);
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
 document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
@@ -625,12 +641,13 @@ document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) 
         dominoes += dicePrice.dominoes;
         return;
       }
+    marks = Number(localStorage.getItem("marks")) || 0;
 
       document.getElementById("chips").innerHTML = formatNumber(chips);
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
 document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
@@ -723,12 +740,13 @@ document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) 
       chips = total / 2;
       cards = total / 2;
       dominoes -= usedPrice[3];
+    marks = Number(localStorage.getItem("marks")) || 0;
 
       document.getElementById("chips").innerHTML = formatNumber(chips);
       document.getElementById("cards").innerHTML = formatNumber(cards);
 
       document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+      document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
 document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
       document.getElementById("rawChips").innerHTML = "Chips: " + chips;
       document.getElementById("rawCards").innerHTML = "Cards: " + cards;
@@ -883,16 +901,18 @@ document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) 
       }
       chips += parseInt(chipFinal);
     }
+    marks = Number(localStorage.getItem("marks")) || 0;
 
     document.getElementById("chips").innerHTML = formatNumber(chips);
     document.getElementById("cards").innerHTML = formatNumber(cards);
     document.getElementById("dominoes").innerHTML = formatNumber(dominoes);
-    document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(marks)) + '<span style="color: #5c0000"> Dark marks.</span>';
+    document.getElementById("marksGain").innerHTML = "You will gain " + formatNumber(calculateMarks(cards + chips)) + '<span style="color: #5c0000"> Dark marks.</span>';
 document.getElementById("marks").innerHTML = "You have: " + formatNumber(marks) + " marks"
     document.getElementById("rawChips").innerHTML = "Chips: " + chips;
     document.getElementById("rawCards").innerHTML = "Cards: " + cards;
     document.getElementById("rawDominoes").innerHTML = "Dominoes: " + dominoes;
     document.getElementById("rawMarks").innerHTML = "Marks: " + marks
+    
   };
 }; //something is disabling the increase()
 // why is it null..?

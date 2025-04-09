@@ -256,7 +256,13 @@ width:100% !important;
 }
 #sacrificeButton {
   top: 350px;
-  left: 340px;
+  left: 235px;
+
+  position: absolute;
+}
+#sacrificeBackButton {
+  top: 350px;
+  left: 435px;
 
   position: absolute;
 }
